@@ -21,7 +21,7 @@ My snake project is a simulation of the original snake game, where a player cont
 - [ ] Future Update 1
 - [ ] Future Update 2
 - [ ] Completed Update
-- [ ] ~~Strikethrough~~ Items Also
+- [ ] Items Also
 ***
 
 ### ***Credits***
