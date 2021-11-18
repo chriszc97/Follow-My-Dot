@@ -1,7 +1,7 @@
 # Praject-Snake
 # Date: 12/18/2021 #
 ### By: Chris Zeas
-##### [Github |]() [Linkedin | ]() [ Website |]() [ Facebook]()
+##### [Github |](https://github.com/chriszc97) [Linkedin | ](www.linkedin.com/in/christopher-zeas-8929691b1) [ Website |]() [ Facebook]()
 ***
 ### ***Description***
 My snake project is a simulation of the original snake game, where a player continues to play until the head touches the body. This game is being made because personally I use to love playing snake as kid and want to re make it. 
