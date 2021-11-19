@@ -1,4 +1,4 @@
-# Praject-Snake
+# Project-Snake
 # Date: 12/18/2021 #
 ### By: Chris Zeas
 <<<<<<< HEAD
