@@ -14,9 +14,8 @@ window.addEventListener('load', () => {
   mySnake.style.position = 'relative';
   mySnake.style.left = 0;
   mySnake.style.top = 0;
-  dot.style.left = 0;
-  dot.style.top = 0;
 });
+
 document.addEventListener('keydown', (e) => {
   if (interval) {
     clearInterval(interval);
@@ -27,7 +26,10 @@ document.addEventListener('keydown', (e) => {
         mySnake.style.left = parseInt(mySnake.style.left) - position + 'px';
         if (mySnake.style.left === '-200px') {
           mySnake.style.left = parseInt(mySnake.style.left) + position + 'px';
-          console.log('left limit');
+          mySnake.style.left = 0;
+          mySnake.style.top = 0;
+          alert('you lost');
+          clearInterval(interval);
         }
       }, 100);
       break;
@@ -38,6 +40,10 @@ document.addEventListener('keydown', (e) => {
         if (mySnake.style.left === '200px') {
           mySnake.style.left = parseInt(mySnake.style.left) - position + 'px';
           console.log('right limit');
+          mySnake.style.left = 0;
+          mySnake.style.top = 0;
+          alert('you lost');
+          clearInterval(interval);
         }
       }, 100);
       break;
@@ -47,6 +53,10 @@ document.addEventListener('keydown', (e) => {
         if (mySnake.style.top === '-200px') {
           mySnake.style.top = parseInt(mySnake.style.top) + position + 'px';
           console.log('up limit');
+          mySnake.style.left = 0;
+          mySnake.style.top = 0;
+          alert('you lost');
+          clearInterval(interval);
         }
       }, 100);
       break;
@@ -56,11 +66,19 @@ document.addEventListener('keydown', (e) => {
         if (mySnake.style.top === '200px') {
           mySnake.style.top = parseInt(mySnake.style.top) - position + 'px';
           console.log('down limit');
+          mySnake.style.left = 0;
+          mySnake.style.top = 0;
+          alert('you lost');
+          clearInterval(interval);
         }
       }, 100);
       break;
   }
 });
+// console.log(mySnake.position.left);
 // console.log(dot.position.left);
 // console.log(dot.position.top);
 // Make the snake a stack, for every dot it eats the snake's body will increase its stack.
+
+//stack => 
+//let snakeSizeStack = [{dot: x: 0, y: 0}, ]
