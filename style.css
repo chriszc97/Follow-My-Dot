@@ -4,21 +4,21 @@ h1{
 nav{
     text-align: center;
 }
-section{
-    display: grid;
+.gridParent{
+    display:flex ;
     justify-content: center;
 }
 
+
 .gameGrid{
     justify-content: center;
-    text-align: center;
     display: grid;
     background-color: rgb(93, 128, 180);
     height: 400px;
     width: 400px;
     grid-template-columns: repeat(23, 3fr); 
     grid-template-rows: repeat(23, 3fr);;
-    -ms-grid-column-align: center;
+    
 }
 .snake{
     background-color: rgb(108, 70, 114);

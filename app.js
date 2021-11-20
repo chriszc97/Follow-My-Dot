@@ -61,6 +61,6 @@ document.addEventListener('keydown', (e) => {
       break;
   }
 });
-console.log(dot.position.left);
-console.log(dot.position.top);
+// console.log(dot.position.left);
+// console.log(dot.position.top);
 // Make the snake a stack, for every dot it eats the snake's body will increase its stack.
