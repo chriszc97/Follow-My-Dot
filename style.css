@@ -21,11 +21,12 @@ section{
     -ms-grid-column-align: center;
 }
 .snake{
-    background-color: rgb(131, 82, 141);
+    background-color: rgb(108, 70, 114);
     text-align: center;
     justify-content: center;  
     grid-column-start: 12; 
     grid-column-end: 12;
     grid-row-start: 12;
     grid-row-end: 12; 
+    border-radius: 50%;
 }
