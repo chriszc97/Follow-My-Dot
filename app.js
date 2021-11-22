@@ -1,19 +1,27 @@
 const mySnake = document.querySelector('.snake');
 const dot = document.querySelector('.dot');
+const grid = document.querySelector('.gameGrid');
 
+// dot.getBoundingClientRect();
+console.log(dot.getBoundingClientRect());
+// console.log(mySnake.getBoundingClientRect());
 // possible function to move the dot
 const moveDot = () => {
-  // moves the dot tp the right.
-  dot.style.left = parseInt(dot.style.left) + position + 'px';
+  // generate radom number btewwen 0 and 380, max px is 380 for dot.
+  // let rand = Math.floor(Math.random() * 381);
+  // console.log(rand + 'this is the random number');
+  // let dotx = DOMRect.x;
+  // console.log(dotx);
+  // moves the dot to the right.
+  // dot.style.left = parseInt(dot.style.left) + rand + 'px';
+  // if(dot.style.left === ){
+  // }
+  // moves the dot to the right
+  // dot.style.left = parseInt(dot.style.left) - position + 'px';
+  // parseInt(dot.style.left) + Math.random() * (10 - 1) + 1 + 'px';
+  // dot.style.left = parseInt(dot.style.left) + position + 'px';
+  // dot.style.left = parseInt(dot.style.left) - position + 'px';
 };
-
-// let dot = document.createElement('div');
-// dot.className = 'dot';
-// document.querySelector('.gameGrid').appendChild(dot);
-// dot.style.backgroundColor = 'rgb(70,108,90)';
-// dot.style.borderRadius = '50%';
-// dot.top = '100px';
-// dot.left = '100px';
 
 let position = 10;
 let interval = null;
@@ -26,6 +34,9 @@ window.addEventListener('load', () => {
   dot.style.left = 0;
   dot.style.top = 0;
 });
+let showDot = () => {
+  console.log(dot.getBoundingClientRect());
+};
 
 document.addEventListener('keydown', (e) => {
   //   console.log(mySnake.style.left + 'the left of snake');
@@ -40,6 +51,7 @@ document.addEventListener('keydown', (e) => {
     case 'ArrowLeft':
       interval = setInterval(() => {
         mySnake.style.left = parseInt(mySnake.style.left) - position + 'px';
+        console.log(mySnake.getBoundingClientRect());
         if (mySnake.style.left === '-200px') {
           mySnake.style.left = parseInt(mySnake.style.left) + position + 'px';
           mySnake.style.left = 0;
@@ -47,13 +59,19 @@ document.addEventListener('keydown', (e) => {
           alert('you lost');
           clearInterval(interval);
         } else if (
+          // if the snake and dot touch
           mySnake.offsetLeft - 1 === dot.offsetLeft &&
           mySnake.offsetTop - 1 === dot.offsetTop
         ) {
           console.log('they touched');
-          // dot.style.left = parseInt(dot.style.left) + position + 'px';
-          // dot.style.top = 100;
-          moveDot();
+          dot.style.left = parseInt(dot.style.left) + position + 'px';
+          dot.style.top = parseInt(dot.style.top) + position + 'px';
+          // dot.style.left = parseInt(dot.style.left) + 'px';
+          // dot.style.top = parseInt(dot.style.top) + 'px';
+          // console.log(dot.style.top);
+          // console.log(dot.style.left);
+
+          // moveDot();
         }
       }, 100);
       break;
@@ -79,6 +97,7 @@ document.addEventListener('keydown', (e) => {
     case 'ArrowUp':
       interval = setInterval(() => {
         mySnake.style.top = parseInt(mySnake.style.top) - position + 'px';
+        console.log(mySnake.getBoundingClientRect());
         if (mySnake.style.top === '-200px') {
           mySnake.style.top = parseInt(mySnake.style.top) + position + 'px';
           console.log('up limit');
@@ -97,6 +116,7 @@ document.addEventListener('keydown', (e) => {
     case 'ArrowDown':
       interval = setInterval(() => {
         mySnake.style.top = parseInt(mySnake.style.top) + position + 'px';
+        console.log(mySnake.getBoundingClientRect());
         if (mySnake.style.top === '200px') {
           mySnake.style.top = parseInt(mySnake.style.top) - position + 'px';
           console.log('down limit');
@@ -113,28 +133,4 @@ document.addEventListener('keydown', (e) => {
       }, 100);
       break;
   }
-  //   console.log(dot.offsetTop + ' dot top');
-  //   console.log(dot.offsetLeft + ' dot left');
-  //   console.log(mySnake.offsetTop + ' snake top');
-  //   console.log(mySnake.offsetLeft + ' snake left');
 });
-// console.log(dot.offsetTop);
-// console.log(dot.offsetLeft);
-// console.log(mySnake.offsetTop);
-// console.log(mySnake.offsetLeft);
-// console.log(dot.style.left);
-// console.log(dot.top);
-// console.log(mySnake.position.left);
-// console.log(dot.position.left);
-// console.log(dot.position.top);
-// Make the snake a stack, for every dot it eats the snake's body will increase its stack.
-
-//stack =>
-//let snakeSizeStack = [{dot: x: 0, y: 0}, ]
-
-console.log(mySnake.offsetTop + ' snake top');
-console.log(mySnake.offsetLeft + ' snake left');
-console.log(dot.offsetTop + ' dot top');
-console.log(dot.offsetLeft + ' dot left');
-// console.log(mySnake.offsetRight + ' snake top');
-// console.log(mySnake.offsetBottum + ' snake left');
