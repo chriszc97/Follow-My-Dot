@@ -1,6 +1,11 @@
 const mySnake = document.querySelector('.snake');
-const dot = document.querySelector('.dot');
+// const dot = document.querySelector('.dot');
 const grid = document.querySelector('.gameGrid');
+let dot = document.createElement('div');
+dot.className = 'dot';
+grid.appendChild(dot);
+dot.style.borderRadius = '50%';
+dot.style.backgroundColor = 'rgb(143, 61, 105)';
 
 // dot.getBoundingClientRect();
 console.log(dot.getBoundingClientRect());
@@ -34,16 +39,8 @@ window.addEventListener('load', () => {
   dot.style.left = 0;
   dot.style.top = 0;
 });
-let showDot = () => {
-  console.log(dot.getBoundingClientRect());
-};
 
 document.addEventListener('keydown', (e) => {
-  //   console.log(mySnake.style.left + 'the left of snake');
-  //   console.log(mySnake.style.top + 'the top of snake');
-  //   console.log(dot.style.left + 'the left of dot');
-  //   console.log(dot.style.top + 'the top of dot');
-
   if (interval) {
     clearInterval(interval);
   }
@@ -51,7 +48,7 @@ document.addEventListener('keydown', (e) => {
     case 'ArrowLeft':
       interval = setInterval(() => {
         mySnake.style.left = parseInt(mySnake.style.left) - position + 'px';
-        console.log(mySnake.getBoundingClientRect());
+        // console.log(mySnake.getBoundingClientRect());
         if (mySnake.style.left === '-200px') {
           mySnake.style.left = parseInt(mySnake.style.left) + position + 'px';
           mySnake.style.left = 0;
@@ -64,8 +61,8 @@ document.addEventListener('keydown', (e) => {
           mySnake.offsetTop - 1 === dot.offsetTop
         ) {
           console.log('they touched');
-          dot.style.left = parseInt(dot.style.left) + position + 'px';
-          dot.style.top = parseInt(dot.style.top) + position + 'px';
+          // dot.style.left = parseInt(dot.style.left) + position + 'px';
+          // dot.style.top = parseInt(dot.style.top) + position + 'px';
           // dot.style.left = parseInt(dot.style.left) + 'px';
           // dot.style.top = parseInt(dot.style.top) + 'px';
           // console.log(dot.style.top);
@@ -97,7 +94,6 @@ document.addEventListener('keydown', (e) => {
     case 'ArrowUp':
       interval = setInterval(() => {
         mySnake.style.top = parseInt(mySnake.style.top) - position + 'px';
-        console.log(mySnake.getBoundingClientRect());
         if (mySnake.style.top === '-200px') {
           mySnake.style.top = parseInt(mySnake.style.top) + position + 'px';
           console.log('up limit');
@@ -116,7 +112,6 @@ document.addEventListener('keydown', (e) => {
     case 'ArrowDown':
       interval = setInterval(() => {
         mySnake.style.top = parseInt(mySnake.style.top) + position + 'px';
-        console.log(mySnake.getBoundingClientRect());
         if (mySnake.style.top === '200px') {
           mySnake.style.top = parseInt(mySnake.style.top) - position + 'px';
           console.log('down limit');
@@ -134,3 +129,4 @@ document.addEventListener('keydown', (e) => {
       break;
   }
 });
+// console.log(dot.getBoundingClientRect());

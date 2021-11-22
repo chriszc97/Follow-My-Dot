@@ -30,7 +30,7 @@ nav{
     grid-row-end: 12; 
     border-radius: 50%;
 }
-.dot{
+/* .dot{
     background-color: rgb(143, 61, 105);
     /* text-align: center;
     justify-content: center;   */
@@ -38,5 +38,5 @@ nav{
     grid-column-end: 0;
     grid-row-start: 0;
     grid-row-end: 0;  */
-    border-radius: 50%;
-}
+    /* border-radius: 50%; */
+/* }  */
