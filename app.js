@@ -98,7 +98,7 @@ document.addEventListener('keydown', (e) => {
           mySnake.offsetLeft - 1 === dot.offsetLeft &&
           mySnake.offsetTop - 1 === dot.offsetTop
         ) {
-          dot.style.top = parseInt(dot.style.top) + position + 'px';
+          dot.style.top = parseInt(dot.style.top) + 20 + 'px';
           // dot.style.left = parseInt(dot.style.left) + position + 'px';
           score++;
           document.querySelector('nav').innerText = score;
@@ -116,7 +116,6 @@ document.addEventListener('keydown', (e) => {
         mySnake.style.top = parseInt(mySnake.style.top) + position + 'px';
         if (mySnake.style.top === '200px') {
           mySnake.style.top = parseInt(mySnake.style.top) + position + 'px';
-          console.log('down limit');
           mySnake.style.left = 0;
           mySnake.style.top = 0;
           alert(
@@ -127,9 +126,8 @@ document.addEventListener('keydown', (e) => {
           mySnake.offsetLeft - 1 === dot.offsetLeft &&
           mySnake.offsetTop - 1 === dot.offsetTop
         ) {
-          // dot.style.left = parseInt(dot.style.left) - position + 'px';
-          dot.style.top = parseInt(dot.style.top) - position + 'px';
-          // dot.style.top = parseInt(dot.style.top) + position + 'px';
+          dot.style.left = parseInt(dot.style.left) + 20 + 'px';
+
           score++;
           document.querySelector('nav').innerText = score;
         } else if (winnerCheck(score)) {
