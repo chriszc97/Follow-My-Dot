@@ -44,7 +44,7 @@ document.addEventListener('keydown', (e) => {
           mySnake.offsetTop - 1 === dot.offsetTop
         ) {
           console.log('they touched');
-          dot.style.left = parseInt(dot.style.left) + position + 'px';
+          dot.style.left = parseInt(dot.style.left) + 40 + 'px';
           score++;
           document.querySelector('nav').innerText = score;
           console.log(score);
@@ -75,7 +75,7 @@ document.addEventListener('keydown', (e) => {
           score++;
           console.log(score);
           console.log('they touched ');
-          dot.style.top = parseInt(dot.style.top) + position + 'px';
+          dot.style.top = parseInt(dot.style.left) + position + 'px';
           document.querySelector('nav').innerText = score;
         } else if (winnerCheck(score)) {
           mySnake.style.left = 0;
@@ -99,7 +99,7 @@ document.addEventListener('keydown', (e) => {
           mySnake.offsetTop - 1 === dot.offsetTop
         ) {
           dot.style.top = parseInt(dot.style.top) + position + 'px';
-          dot.style.left = parseInt(dot.style.left) + position + 'px';
+          // dot.style.left = parseInt(dot.style.left) + position + 'px';
           score++;
           document.querySelector('nav').innerText = score;
 
@@ -127,8 +127,9 @@ document.addEventListener('keydown', (e) => {
           mySnake.offsetLeft - 1 === dot.offsetLeft &&
           mySnake.offsetTop - 1 === dot.offsetTop
         ) {
-          dot.style.left = parseInt(dot.style.left) - position + 'px';
-          dot.style.top = parseInt(dot.style.top) + position + 'px';
+          // dot.style.left = parseInt(dot.style.left) - position + 'px';
+          dot.style.top = parseInt(dot.style.top) - position + 'px';
+          // dot.style.top = parseInt(dot.style.top) + position + 'px';
           score++;
           document.querySelector('nav').innerText = score;
         } else if (winnerCheck(score)) {
