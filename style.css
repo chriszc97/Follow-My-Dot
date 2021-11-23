@@ -8,8 +8,6 @@ nav{
     display:flex ;
     justify-content: center;
 }
-
-
 .gameGrid{
     justify-content: center;
     display: grid;

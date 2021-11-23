@@ -8,6 +8,7 @@ let interval = null;
 let winnerCheck = (num) => {
   if (num === 10) {
     alert('You got 10 point, You win.');
+    clearInterval(interval);
   }
 };
 window.addEventListener('load', () => {
@@ -40,21 +41,14 @@ document.addEventListener('keydown', (e) => {
         ) {
           console.log('they touched');
           dot.style.left = parseInt(dot.style.left) + position + 'px';
-          // dot.style.top = parseInt(dot.style.top) + position + 'px';
           score++;
           document.querySelector('nav').innerText = score;
           console.log(score);
-          if (winnerCheck(score)) {
-            // clearInterval(interval);
-            mySnake.style.left = 0;
-            mySnake.style.top = 0;
-            // return;
-          }
         }
-        // else if (dot.style.offsetLeft > 532.39) {
-        //   console, log('the dot reached the max');
-        //   dot.stlye.left = parseInt(dot.style.left) - position + 'px';
-        // }
+        if (winnerCheck(score)) {
+          mySnake.style.left = 0;
+          mySnake.style.top = 0;
+        }
       }, 100);
       break;
 
@@ -67,7 +61,7 @@ document.addEventListener('keydown', (e) => {
           mySnake.style.left = 0;
           mySnake.style.top = 0;
           alert('you lost');
-          // clearInterval(interval);
+          clearInterval(interval);
         } else if (
           mySnake.offsetLeft - 1 === dot.offsetLeft &&
           mySnake.offsetTop - 1 === dot.offsetTop
@@ -80,14 +74,7 @@ document.addEventListener('keydown', (e) => {
         } else if (winnerCheck(score)) {
           mySnake.style.left = 0;
           mySnake.style.top = 0;
-          // return;
-          // clearInterval(interval);
         }
-
-        // else if (dot.style.left === '-400px') {
-        //   console, log('the dot reached the max');
-        //   dot.stlye.left = parseInt(dot.style.left) + position + 'px';
-        // }
       }, 100);
       break;
     case 38:
@@ -99,7 +86,7 @@ document.addEventListener('keydown', (e) => {
           mySnake.style.left = 0;
           mySnake.style.top = 0;
           alert('you lost');
-          // clearInterval(interval);
+          clearInterval(interval);
         } else if (
           mySnake.offsetLeft - 1 === dot.offsetLeft &&
           mySnake.offsetTop - 1 === dot.offsetTop
