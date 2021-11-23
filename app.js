@@ -5,8 +5,19 @@ let score = 0;
 document.querySelector('nav').innerText = score;
 let position = 10;
 let interval = null;
-
-console.log(mySnake.getBoundingClientRect());
+let winnerCheck = (num) => {
+  if (num === 10) {
+    alert('You got 10 point, You win.');
+  }
+};
+window.addEventListener('load', () => {
+  mySnake.style.position = 'relative';
+  mySnake.style.left = 0;
+  mySnake.style.top = 0;
+  dot.style.position = 'relative';
+  dot.style.left = 0;
+  dot.style.top = 0;
+});
 
 document.addEventListener('keydown', (e) => {
   if (interval) {
@@ -33,6 +44,12 @@ document.addEventListener('keydown', (e) => {
           score++;
           document.querySelector('nav').innerText = score;
           console.log(score);
+          if (winnerCheck(score)) {
+            // clearInterval(interval);
+            mySnake.style.left = 0;
+            mySnake.style.top = 0;
+            // return;
+          }
         }
         // else if (dot.style.offsetLeft > 532.39) {
         //   console, log('the dot reached the max');
@@ -50,7 +67,7 @@ document.addEventListener('keydown', (e) => {
           mySnake.style.left = 0;
           mySnake.style.top = 0;
           alert('you lost');
-          clearInterval(interval);
+          // clearInterval(interval);
         } else if (
           mySnake.offsetLeft - 1 === dot.offsetLeft &&
           mySnake.offsetTop - 1 === dot.offsetTop
@@ -58,10 +75,15 @@ document.addEventListener('keydown', (e) => {
           score++;
           console.log(score);
           console.log('they touched ');
-          // dot.style.left = parseInt(dot.style.left) + position + 'px';
           dot.style.top = parseInt(dot.style.top) + position + 'px';
           document.querySelector('nav').innerText = score;
+        } else if (winnerCheck(score)) {
+          mySnake.style.left = 0;
+          mySnake.style.top = 0;
+          // return;
+          // clearInterval(interval);
         }
+
         // else if (dot.style.left === '-400px') {
         //   console, log('the dot reached the max');
         //   dot.stlye.left = parseInt(dot.style.left) + position + 'px';
@@ -77,17 +99,23 @@ document.addEventListener('keydown', (e) => {
           mySnake.style.left = 0;
           mySnake.style.top = 0;
           alert('you lost');
-          clearInterval(interval);
+          // clearInterval(interval);
         } else if (
           mySnake.offsetLeft - 1 === dot.offsetLeft &&
           mySnake.offsetTop - 1 === dot.offsetTop
         ) {
           dot.style.top = parseInt(dot.style.top) + position + 'px';
           dot.style.left = parseInt(dot.style.left) + position + 'px';
-          document.querySelector('nav').innerText = score;
           score++;
+          document.querySelector('nav').innerText = score;
+
           console.log(score);
           console.log('they touched ');
+        } else if (winnerCheck(score)) {
+          mySnake.style.left = 0;
+          mySnake.style.top = 0;
+          // return;
+          // clearInterval(interval);
         }
       }, 100);
       break;
@@ -111,22 +139,19 @@ document.addEventListener('keydown', (e) => {
           document.querySelector('nav').innerText = score;
           console.log(score);
           console.log('they touched ');
-          // } else if (dot.style.left >= '10px') {
-          //   alert('you lost');
+        } else if (winnerCheck(score)) {
+          mySnake.style.left = 0;
+          mySnake.style.top = 0;
+          // return;
+          // clearInterval(interval);
         }
+        // } else if (dot.style.left >= '10px') {
+        //   alert('you lost');
       }, 100);
       break;
   }
 });
-console.log(dot.offsetTop + 'the top dot');
-console.log(dot.offsetLeft + ' the left dot');
-window.addEventListener('load', () => {
-  mySnake.style.position = 'relative';
-  mySnake.style.left = 0;
-  mySnake.style.top = 0;
-  dot.style.position = 'relative';
-  dot.style.left = 0;
-  dot.style.top = 0;
-});
+// console.log(dot.offsetTop + 'the top dot');
+// console.log(dot.offsetLeft + ' the left dot');
 
 // console.log(dot.getBoundingClientRect());
