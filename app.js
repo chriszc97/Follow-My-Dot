@@ -9,7 +9,7 @@ let position = 10;
 let interval = null;
 let winnerCheck = (num) => {
   if (num === 10) {
-    alert('You got 10 point, You win.');
+    alert('You got 10 point, You win. Press the restart button to play again!');
     clearInterval(interval);
   }
 };
@@ -131,8 +131,6 @@ document.addEventListener('keydown', (e) => {
           dot.style.top = parseInt(dot.style.top) + position + 'px';
           score++;
           document.querySelector('nav').innerText = score;
-          console.log(score);
-          console.log('they touched ');
         } else if (winnerCheck(score)) {
           mySnake.style.left = 0;
           mySnake.style.top = 0;
