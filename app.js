@@ -1,7 +1,9 @@
 const mySnake = document.querySelector('.snake');
 const dot = document.querySelector('.dot');
 const grid = document.querySelector('.gameGrid');
+
 let score = 0;
+
 document.querySelector('nav').innerText = score;
 let position = 10;
 let interval = null;
@@ -32,7 +34,9 @@ document.addEventListener('keydown', (e) => {
           mySnake.style.left = parseInt(mySnake.style.left) + position + 'px';
           mySnake.style.left = 0;
           mySnake.style.top = 0;
-          alert('you lost');
+          alert(
+            "Oh No! You toched the border, no worries keep going! We're all winners."
+          );
           clearInterval(interval);
         } else if (
           // if the snake and dot touch
@@ -60,7 +64,9 @@ document.addEventListener('keydown', (e) => {
           console.log('right limit');
           mySnake.style.left = 0;
           mySnake.style.top = 0;
-          alert('you lost');
+          alert(
+            "Oh No! You toched the border, no worries keep going! We're all winners here."
+          );
           clearInterval(interval);
         } else if (
           mySnake.offsetLeft - 1 === dot.offsetLeft &&
@@ -82,10 +88,11 @@ document.addEventListener('keydown', (e) => {
         mySnake.style.top = parseInt(mySnake.style.top) - position + 'px';
         if (mySnake.style.top === '-200px') {
           mySnake.style.top = parseInt(mySnake.style.top) + position + 'px';
-          console.log('up limit');
           mySnake.style.left = 0;
           mySnake.style.top = 0;
-          alert('you lost');
+          alert(
+            "Oh No! You toched the border, no worries keep going! We're all winners here."
+          );
           clearInterval(interval);
         } else if (
           mySnake.offsetLeft - 1 === dot.offsetLeft &&
@@ -97,12 +104,10 @@ document.addEventListener('keydown', (e) => {
           document.querySelector('nav').innerText = score;
 
           console.log(score);
-          console.log('they touched ');
+          console.log('they touched');
         } else if (winnerCheck(score)) {
           mySnake.style.left = 0;
           mySnake.style.top = 0;
-          // return;
-          // clearInterval(interval);
         }
       }, 100);
       break;
@@ -114,7 +119,9 @@ document.addEventListener('keydown', (e) => {
           console.log('down limit');
           mySnake.style.left = 0;
           mySnake.style.top = 0;
-          alert('you lost');
+          alert(
+            "Oh No! You toched the border, no worries keep going! We're all winners here."
+          );
           clearInterval(interval);
         } else if (
           mySnake.offsetLeft - 1 === dot.offsetLeft &&
@@ -129,16 +136,18 @@ document.addEventListener('keydown', (e) => {
         } else if (winnerCheck(score)) {
           mySnake.style.left = 0;
           mySnake.style.top = 0;
-          // return;
-          // clearInterval(interval);
         }
-        // } else if (dot.style.left >= '10px') {
-        //   alert('you lost');
       }, 100);
       break;
   }
 });
-// console.log(dot.offsetTop + 'the top dot');
-// console.log(dot.offsetLeft + ' the left dot');
-
-// console.log(dot.getBoundingClientRect());
+let btn = document.querySelector('button');
+btn.addEventListener('click', () => {
+  clearInterval(interval);
+  mySnake.style.left = 0;
+  mySnake.style.top = 0;
+  score = 0;
+  document.querySelector('nav').innerText = score;
+  dot.style.left = 0;
+  dot.style.top = 0;
+});
