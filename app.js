@@ -1,18 +1,22 @@
 const mySnake = document.querySelector('.snake');
 const dot = document.querySelector('.dot');
-const grid = document.querySelector('.gameGrid');
-
+// score count
 let score = 0;
-
 document.querySelector('nav').innerText = score;
+
+// The amount of px the snake will move per mili second
 let position = 10;
 let interval = null;
+
+//function to check if the user has made ten points
 let winnerCheck = (num) => {
   if (num === 10) {
     alert('You got 10 point, You win. Press the restart button to play again!');
     clearInterval(interval);
   }
 };
+
+// when the page loads, the postions will be reset.
 window.addEventListener('load', () => {
   mySnake.style.position = 'relative';
   mySnake.style.left = 0;
@@ -22,6 +26,7 @@ window.addEventListener('load', () => {
   dot.style.top = 0;
 });
 
+// key down evnts to get arrow input, how we get our directions, the if(interval) resets the direction, allowing one direction at a time
 document.addEventListener('keydown', (e) => {
   if (interval) {
     clearInterval(interval);
@@ -39,7 +44,7 @@ document.addEventListener('keydown', (e) => {
           );
           clearInterval(interval);
         } else if (
-          // if the snake and dot touch
+          // if the snake and dot touch then move the dots "n" amount of px.
           mySnake.offsetLeft - 1 === dot.offsetLeft &&
           mySnake.offsetTop - 1 === dot.offsetTop
         ) {
@@ -47,15 +52,14 @@ document.addEventListener('keydown', (e) => {
           dot.style.left = parseInt(dot.style.left) + 40 + 'px';
           score++;
           document.querySelector('nav').innerText = score;
-          console.log(score);
         }
         if (winnerCheck(score)) {
+          // reset the dots after winning condition
           mySnake.style.left = 0;
           mySnake.style.top = 0;
         }
       }, 100);
       break;
-
     case 39:
       interval = setInterval(() => {
         mySnake.style.left = parseInt(mySnake.style.left) + position + 'px';
@@ -138,6 +142,8 @@ document.addEventListener('keydown', (e) => {
       break;
   }
 });
+
+// reset button
 let btn = document.querySelector('button');
 btn.addEventListener('click', () => {
   clearInterval(interval);
