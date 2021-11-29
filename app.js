@@ -11,7 +11,9 @@ let interval = null;
 //function to check if the user has made ten points
 let winnerCheck = (num) => {
   if (num === 10) {
-    alert('You got 10 point, You win. Press the restart button to play again!');
+    alert(
+      'You got 10 points, You win. Press the restart button to play again!'
+    );
     clearInterval(interval);
   }
 };
