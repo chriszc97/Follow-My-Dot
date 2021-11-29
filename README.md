@@ -19,8 +19,9 @@ Follow my dot game is a simple game. All it takes is to reach ten points and you
 ##### Move Dot Game
 ![Smile](https://i.imgur.com/bBu4Ok9.png)
 
-- [Turn this game to a full snake game with a snake body] Future Update 1
-- [Eventually making a Pac-Man Game ] Future Update 2
+### ***Future Updates***
+- [ ] Turn this game to a full snake game with a snake body
+- [ ] Eventually making a Pac-Man Game
 ***
 
 ### ***Credits***

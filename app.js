@@ -1,6 +1,6 @@
+// global variables
 const mySnake = document.querySelector('.snake');
 const dot = document.querySelector('.dot');
-// score count
 let score = 0;
 document.querySelector('nav').innerText = score;
 
@@ -34,8 +34,10 @@ document.addEventListener('keydown', (e) => {
   switch (e.keyCode) {
     case 37:
       interval = setInterval(() => {
+        // this moves the snake 10px every mili second
         mySnake.style.left = parseInt(mySnake.style.left) - position + 'px';
         if (mySnake.style.left === '-200px') {
+          // an if statement that stops the snake from going going out of bounds.
           mySnake.style.left = parseInt(mySnake.style.left) + position + 'px';
           mySnake.style.left = 0;
           mySnake.style.top = 0;
@@ -103,7 +105,6 @@ document.addEventListener('keydown', (e) => {
           mySnake.offsetTop - 1 === dot.offsetTop
         ) {
           dot.style.top = parseInt(dot.style.top) + 20 + 'px';
-          // dot.style.left = parseInt(dot.style.left) + position + 'px';
           score++;
           document.querySelector('nav').innerText = score;
 
